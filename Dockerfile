@@ -30,10 +30,8 @@ RUN chmod 644 /app/config.proto
 
 # Set up proper permissions for nsjail
 RUN chmod 755 /usr/local/bin/nsjail && \
-    chown root:root /usr/local/bin/nsjail
-
-# Create and set permissions for tmp directory
-RUN mkdir -p /tmp && \
+    chown root:root /usr/local/bin/nsjail && \
+    mkdir -p /tmp && \
     chmod 1777 /tmp
 
 # Create a non-root user

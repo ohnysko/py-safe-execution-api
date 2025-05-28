@@ -15,7 +15,6 @@ envar: "PYTHONUNBUFFERED=1"
 envar: "PYTHONDONTWRITEBYTECODE=1"
 envar: "PYTHONNOUSERSITE=1"
 
-
 mount {
     src: "/proc"
     dst: "/proc"
@@ -23,60 +22,63 @@ mount {
     rw: false
     mandatory: false
 }
+
 mount {
-    src: "/bin"
-    dst: "/bin"
+    src: "/tmp"
+    dst: "/tmp"
     is_bind: true
-    rw: false
+    rw: true
 }
+
 mount {
     src: "/usr"
     dst: "/usr"
     is_bind: true
     rw: false
 }
+
 mount {
     src: "/lib"
     dst: "/lib"
     is_bind: true
     rw: false
 }
+
 mount {
     src: "/lib64"
     dst: "/lib64"
     is_bind: true
     rw: false
 }
+
 mount {
     src: "/etc"
     dst: "/etc"
     is_bind: true
     rw: false
 }
+
 mount {
     src: "/dev"
     dst: "/dev"
     is_bind: true
     rw: false
 }
-mount {
-    src: "/tmp"
-    dst: "/tmp"
-    is_bind: true
-    rw: false
-}
+
 mount {
     src: "/usr/local"
     dst: "/usr/local"
     is_bind: true
     rw: false
 }
+
 mount {
     src: "/usr/bin"
     dst: "/usr/bin"
     is_bind: true
     rw: false
 }
+
 mount {
     src: "/usr/lib"
     dst: "/usr/lib"
