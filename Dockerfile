@@ -30,13 +30,16 @@ RUN chmod 644 /app/config.proto
 
 # Set up proper permissions for nsjail
 RUN chmod 755 /usr/local/bin/nsjail && \
-    setcap cap_sys_admin+ep /usr/local/bin/nsjail && \
     chown root:root /usr/local/bin/nsjail
 
 # Create and set permissions for tmp directory
 RUN mkdir -p /tmp && \
     chmod 1777 /tmp
 
-RUN cat /app/config.proto
-    
+# Create a non-root user
+RUN useradd -m -s /bin/bash appuser && \
+    chown -R appuser:appuser /app
+
+USER appuser
+
 CMD ["python", "app.py"]
