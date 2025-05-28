@@ -129,6 +129,13 @@ def execute():
 
             whole_stdout = result.stdout.strip()
             outputs = whole_stdout.split("--------------------------------\n")
+            
+            if len(outputs) < 2:
+                return jsonify({
+                    "error": "Script output is malformed - missing delimiter",
+                    "stdout": whole_stdout
+                }), 400
+                
             stdout = outputs[0]
             return_value = outputs[1]
 
